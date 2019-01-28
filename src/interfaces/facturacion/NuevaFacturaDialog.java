@@ -50,10 +50,8 @@ public class NuevaFacturaDialog extends javax.swing.JDialog {
         List<Empleado> empleados = empleadosDat.listarEmpleados();
         if (empleados != null) {
             empleados.forEach((e) -> {
-                cbxEmpleados.addItem(e);
-                /*empleadosModelTable.addRow(new Object[]{e.getCedula(), e.getNombre(),
-                e.getApellido(), e.getGenero(), e.getTelefono(), e.getDireccion(), "0", "0", e.getEstado()
-                });*/
+                if (e.getEstado())
+                    cbxEmpleados.addItem(e);                
             });
         }
         
@@ -61,7 +59,8 @@ public class NuevaFacturaDialog extends javax.swing.JDialog {
         List<Cliente> clientes = clientesDat.listarClientes();
         if (clientes != null) {
             clientes.forEach((c) -> {
-                cbxClientes.addItem(c);
+                if (c.getEstado())
+                    cbxClientes.addItem(c);
             });
         }
         
